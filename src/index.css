@@ -8,7 +8,7 @@ header {
     background-color: blue;
     color: white;
     text-align: center;
-    padding: 60px 0;
+    padding: 40px 0;
     position: relative;
     margin: 0 auto;
 }
@@ -16,7 +16,7 @@ header {
 main{
     width: 940px;
     margin: 0 auto;   
-    margin-top: 120px; 
+    margin-top: 100px; 
 }
 
 .boton{
@@ -47,7 +47,7 @@ footer{
     text-align: center;
     color: white;
     background: url(assets/bg.jpg);
-    padding:60px;
+    padding:40px;
     position: absolute;
     bottom: 0;
     width: 100%;

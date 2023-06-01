@@ -3,11 +3,11 @@ import './App.css'
 
 function crearJson(x1obj,x2obj,x3obj,x1R1,x2R1,x3R1,x1R2,x2R2,x3R2,x1R3,x2R3,x3R3,bR1,bR2,bR3){
 
-  listaC = [];
-  listaA_ub = [];
-  listaA_eq = [];
-  listaB_ub = [];
-  listaB_eq = [];
+  var listaC = [x1obj,x2obj,x3obj];
+  var listaA_ub = [[x1R1,x2R1,x3R1],[x1R2,x2R2,x3R2],[x1R3,x2R3,x3R3],[-1,0,0],[0,-1,0],[0,0,-1]];
+  var listaA_eq = [];
+  var listaB_ub = [bR1,bR2,bR3,0,0,0];
+  var listaB_eq = [];
 
   const datos = {
     c: listaC,
@@ -18,17 +18,7 @@ function crearJson(x1obj,x2obj,x3obj,x1R1,x2R1,x3R1,x1R2,x2R2,x3R2,x1R3,x2R3,x3R
   };
 
   const jsonDatos = JSON.stringify(datos);
-
-  const fs = require('fs');
-
-  fs.writeFile('datos.json', jsonDatos, 'utf8', (error) => {
-    if (error) {
-      console.error('Error al crear el archivo JSON:', error);
-      return;
-    }
-    console.log('El archivo JSON ha sido creado exitosamente.');
-  });
-
+  console.log(jsonDatos);
 }
 
 function App() {
@@ -45,7 +35,7 @@ function App() {
         <option id="mi"> Minimizar </option>
       </select>
 
-      <h2 class="stitle">Funcion objetivo</h2>
+      <h2 className="stitle">Funcion objetivo</h2>
       
       <form>
         <label>Z = </label>
@@ -61,7 +51,7 @@ function App() {
         <label>X3</label>
       </form>
 
-      <h2 class="stitle">Restricciones</h2>
+      <h2 className="stitle">Restricciones</h2>
 
       <form>
         <input id="x1R1" type="text"/>
@@ -127,7 +117,7 @@ function App() {
       </form>
 
       <div>
-        <input onClick={() => crearJson("")} id="btnSol" type="submit" class="boton" value="Solucionar"/>
+        <input onClick={() => crearJson(parseInt(document.getElementById("x1obj").value),parseInt(document.getElementById("x2obj").value),parseInt(document.getElementById("x3obj").value),parseInt(document.getElementById("x1R1").value),parseInt(document.getElementById("x2R1").value),parseInt(document.getElementById("x3R1").value),parseInt(document.getElementById("x1R2").value),parseInt(document.getElementById("x2R2").value),parseInt(document.getElementById("x3R2").value),parseInt(document.getElementById("x1R3").value),parseInt(document.getElementById("x2R3").value),parseInt(document.getElementById("x3R3").value),parseInt(document.getElementById("bR1").value),parseInt(document.getElementById("bR2").value),parseInt(document.getElementById("bR3").value))} id="btnSol" type="submit" className="boton" value="Solucionar"/>
       </div>
     </main>
 
